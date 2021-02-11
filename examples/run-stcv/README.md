@@ -14,12 +14,13 @@ User needs to use vSphere CLI (govc) to create a template from the STCv ova imag
 | Name | Version |
 |------|---------|
 | terraform | >= 0.13.0 |
+| vsphere | 1.24.3 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| vsphere | n/a |
+| vsphere | 1.24.3 |
 
 ## Inputs
 

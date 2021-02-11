@@ -1,45 +1,3 @@
-variable "vsphere_server" {
-  description = "The vSphere server."
-  type        = string
-  default     = ""
-}
-
-variable "vsphere_user" {
-  description = "The user to access vSphere."
-  type        = string
-  default     = ""
-}
-
-variable "vsphere_password" {
-  description = "The password for the current vSphere user."
-  type        = string
-  default     = ""
-}
-
-variable "vsphere_datacenter" {
-  description = "The name of the vSphere Datacenter into which resources will be created."
-  type        = string
-  default     = ""
-}
-
-variable "vsphere_datastore" {
-  description = "The name of the vSphere Datastore into which resources will be created."
-  type        = string
-  default     = ""
-}
-
-variable "vsphere_host" {
-  description = "Host name on the vSphere server."
-  type        = string
-  default     = ""
-}
-
-variable "vsphere_compute_cluster" {
-  description = "The vSphere Cluster into which resources will be created."
-  type        = string
-  default     = ""
-}
-
 variable "instance_name" {
   description = "Name assigned to the instance.  An instance number will be appended to the name."
   type        = string
@@ -98,4 +56,9 @@ variable "data_plane_network_id" {
   description = "Test or data plane network ID."
   type        = string
   default     = ""
+}
+
+variable "user_data_file" {
+  description = "Path to the file containing user data for the instance. See README for Spirent TestCenter Virtual cloud-init configuration parameters that are supported."
+  type        = string
 }

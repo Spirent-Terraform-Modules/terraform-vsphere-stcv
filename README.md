@@ -33,6 +33,7 @@
 | vsphere\_password | The password for the current vSphere user. | `string` | `""` | no |
 | vsphere\_server | The vSphere server. | `string` | `""` | no |
 | vsphere\_user | The user to access vSphere. | `string` | `""` | no |
+| user\_data\_file | Path to the file containing user data for the instance. See README for Spirent TestCenter Virtual cloud-init configuration parameters that are supported. | `string` | n/a | yes |
 
 ## Outputs
 
@@ -43,3 +44,31 @@
 | instance\_uuids | List of UUIDs assigned to the instances. |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## User Data (cloud-init)
+
+### Example
+```
+#cloud-config
+spirent:
+  driver: dpdk
+  speed: 10G
+```
+
+### Parameters
+
+| Name | Description |  Type | Default
+|------|-------------|-------------|-------------
+| speed | Maximum network interface speed | 1G, 5G, 10G, 25G, 50G, 100G | 1G
+| driver | Network driver interface | sockets, dpdk | dpdk (for supported cloud provider instances)
+| rxq | RX queue size for dpdk driver | 1-N | 1
+| benchmark | Turn benchmark rate mode on or off for dpdk driver| off, on | off
+| ntp | NTP server | IP address | x.x.x.x (cloud provider recommended)
+| ipv4mode | IPv4 address mode | none, static, dhcp | dhcp
+| ipaddress | IPv4 address (static mode) | IPv4 address | -
+| netmask | IPv4 netmask (static mode) | IPv4 netmaks | -
+| gwaddress | IPv4 gateway address (static mode) | IPv4 gateway address | -
+| ipv6mode | IPv6 address mode | none, static, dhcp | none
+| ipv6address | IPv4 address (static mode) | IPv4 address | -
+| ipv6prefixlen | IPv6 prefix length (static mode) | IPv4 netmaks | -
+| ipv6gwaddress | IPv4 gateway address (static mode) | IPv6 gateway address | -
+| gvtap | Turn Gigamon gvtap agent on or off| off, on | off

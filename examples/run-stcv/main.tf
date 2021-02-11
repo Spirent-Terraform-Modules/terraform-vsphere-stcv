@@ -47,6 +47,7 @@ module "stcv" {
   mgmt_plane_network_id   = data.vsphere_network.mgmt_plane.id
   data_plane_network_id   = data.vsphere_network.data_plane.id
   template_name           = var.template_name
+  user_data_file          = "../../cloud-init.yaml"
 }
 
 output "instance_uuids" {

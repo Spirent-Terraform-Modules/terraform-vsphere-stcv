@@ -14,11 +14,11 @@ resource "vsphere_virtual_machine" "stcv" {
   scsi_type           = data.vsphere_virtual_machine.template_stcv.scsi_type
   network_interface {
     network_id        = var.mgmt_plane_network_id
-    #adapter_type = data.vsphere_virtual_machine.template_stcv.network_interface_types[0]
+    adapter_type      = data.vsphere_virtual_machine.template_stcv.network_interface_types[0]
   }
   network_interface {
     network_id        = var.data_plane_network_id
-    #adapter_type = data.vsphere_virtual_machine.template_stcv.network_interface_types[0]
+    adapter_type      = data.vsphere_virtual_machine.template_stcv.network_interface_types[0]
   }
   disk {
     name              = "${var.instance_name}.vmdk"
@@ -30,7 +30,7 @@ resource "vsphere_virtual_machine" "stcv" {
   }
 
   extra_config = {
-    "guestinfo.userdata"          = base64encode(file("${path.module}/templates/userdata.yaml"))
+    "guestinfo.userdata"          = base64encode(file(var.user_data_file))
     "guestinfo.userdata.encoding" = "base64"
   }
 }

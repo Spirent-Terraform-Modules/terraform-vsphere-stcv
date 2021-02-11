@@ -1,36 +1,36 @@
 variable "vsphere_server" {
   description = "The vSphere server."
-  default     = "virttest-vc.calenglab.spirentcom.com"
+  default     = "example-vc.testlab.org.com"
 }
 
 variable "vsphere_user" {
   description = "The user to access vSphere."
-  default     = "administrator@vsphere.local"
+  default     = "example@vsphere.local"
 }
 
 variable "vsphere_password" {
   description = "The password for the current vSphere user."
-  default     = "Sp!rent01"
+  default     = "example"
 }
 
 variable "vsphere_datacenter" {
   description = "The name of the vSphere Datacenter into which resources will be created."
-  default     = "Benchmarking"
+  default     = "example-dc"
 }
 
 variable "vsphere_datastore" {
   description = "The name of the vSphere Datastore into which resources will be created."
-  default     = "VirtTest-05.local"
+  default     = "example-01.local"
 }
 
 variable "vsphere_compute_cluster" {
   description = "The vSphere Cluster into which resources will be created."
-  default     = "Testing"
+  default     = "example-cluster"
 }
 
 variable "vsphere_host" {
   description = "Host name on the vSphere server."
-  default     = "virttest-05.calenglab.spirentcom.com"
+  default     = "example-01.testlab.org.com"
 }
 
 variable "instance_count" {

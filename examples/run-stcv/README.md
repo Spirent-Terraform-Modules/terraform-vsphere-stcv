@@ -31,7 +31,7 @@ _Note: [Prerequisites](../../README.md#Prerequisites) are also required._
 
 | Name | Source | Version |
 |------|--------|---------|
-| aion | ../.. |  |
+| stcv | ../.. |  |
 
 ## Resources
 

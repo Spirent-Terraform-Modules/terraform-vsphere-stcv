@@ -1,6 +1,6 @@
 variable "vsphere_server" {
   description = "The vSphere server."
-  default     = "virttest-vc.calenglab.spirentcom.com"
+  default     = "example.calenglab.org.com"
 }
 
 variable "vsphere_user" {
@@ -10,22 +10,22 @@ variable "vsphere_user" {
 
 variable "vsphere_password" {
   description = "vSphere user password."
-  default     = "Sp!rent01"
+  default     = "VspherePassword"
 }
 
 variable "datacenter" {
   description = "vSphere datacenter name."
-  default     = "Benchmarking"
+  default     = "dc"
 }
 
 variable "datastore" {
   description = "vSphere datastore name."
-  default     = "VirtTest-05.local"
+  default     = "ds"
 }
 
 variable "compute_cluster" {
   description = "vSphere Cluster name into which resources will be created."
-  default     = "Testing"
+  default     = "cluster1"
 }
 
 variable "instance_count" {
@@ -51,10 +51,10 @@ variable "template_name" {
 
 variable "mgmt_plane_network" {
   description = "Management network name."
-  default     = "Host Network - A1"
+  default     = "Host Network"
 }
 
 variable "data_plane_network" {
   description = "Data network name."
-  default     = "OSE_Testing"
+  default     = "Test Network"
 }

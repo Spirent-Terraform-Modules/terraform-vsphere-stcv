@@ -1,4 +1,33 @@
-# Run STCv traffic generator instances with public and test networks. Instances can be controlled by the Spirent TestCenter application.
+# Spirent TestCenter Virtual Terraform
+
+## Description
+# Run STCv traffic generator instances with public and test networks. 
+
+Instances can be controlled by the Spirent TestCenter application.
+
+## Prerequisites
+
+Prior to running Terraform the following must be completed:
+1.  [Install govc](#install-govc)
+2.  [Create STCv image vSphere Template](#create-stcv-image-vsphere-template)
+
+### Install govc
+[govc](https://github.com/vmware/govmomi/tree/master/govc) is a vSphere command line interface (CLI). Follow installation instructions [here](https://github.com/vmware/govmomi/tree/master/govc#Installation).
+
+Set govc environmental variables specific to your vSphere: GOVC_URL, GOVC_INSECURE, GOVC_USERNAME, GOVC_PASSWORD
+
+Verify vSphere list inventory works:
+```
+govc ls -l "*"
+```
+
+### Create STCv image vSphere Template
+Create vSphere STCv template using the following commands:
+```
+1. govc import.ova -dc=example-dc -ds=example-01.local -name=template_from_ovf Spirent_TestCenter_Virtual_ESX_x.xx.xxxx.ova
+2. govc vm.markastemplate -dc=example-dc template_from_ovf
+```
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
@@ -17,23 +46,16 @@
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| data\_plane\_network\_id | Test or data plane network ID. | `string` | `""` | no |
-| datacenter\_id | vSphere datacenter ID. | `string` | `""` | no |
-| datastore\_id | vSphere datastore ID. | `string` | `""` | no |
+| data\_plane\_network\_id | Test or data plane network ID. | `string` | n/a | yes |
+| datacenter | vSphere datacenter name | `string` | n/a | yes |
+| datastore | vSphere datastore name | `string` | n/a | yes |
 | instance\_count | Number of STCv instances to create. | `number` | `2` | no |
 | instance\_name | Name assigned to the instance.  An instance number will be appended to the name. | `string` | `"STCv"` | no |
 | memory | The size of the virtual machine's memory, in MB. | `number` | `"1024"` | no |
-| mgmt\_plane\_network\_id | Management network ID. | `string` | `""` | no |
+| mgmt\_plane\_network\_id | Management network ID | `string` | n/a | yes |
 | num\_cpus | The total number of virtual processor cores to assign to STCv virtual machine | `number` | `"2"` | no |
-| resource\_pool\_id | vSphere resource pool ID. | `string` | `""` | no |
-| template\_name | Name of the template created from the OVA | `string` | `""` | no |
-| vsphere\_compute\_cluster | The vSphere Cluster into which resources will be created. | `string` | `""` | no |
-| vsphere\_datacenter | The name of the vSphere Datacenter into which resources will be created. | `string` | `""` | no |
-| vsphere\_datastore | The vSphere Datastore into which resources will be created. | `string` | `""` | no |
-| vsphere\_host | Host name on the vSphere server. | `string` | `""` | no |
-| vsphere\_password | The password for the current vSphere user. | `string` | `""` | no |
-| vsphere\_server | The vSphere server. | `string` | `""` | no |
-| vsphere\_user | The user to access vSphere. | `string` | `""` | no |
+| resource\_pool\_id | vSphere resource pool ID | `string` | n/a | yes |
+| template\_name | Name of the template created from the OVA | `string` | n/a | yes |
 | user\_data\_file | Path to the file containing user data for the instance. See README for Spirent TestCenter Virtual cloud-init configuration parameters that are supported. | `string` | n/a | yes |
 
 ## Outputs

@@ -1,6 +1,6 @@
 ## Description
 This Terraform module deploys Spirent TestCenter Virtual Machines from a template created from the ova file.
-The example requires the user to provide an already existing datacenter , datastore, network , OVF template details .
+The example requires the user to provide an already existing datacenter, datastore, network, OVF template details.
 It deploys Spirent TestCenter Virtual traffic generator instances with public and test networks.
 Instances can be controlled by the Spirent TestCenter application.
 
@@ -11,7 +11,11 @@ To run this example you need to execute:
     $ terraform plan
     $ terraform apply
 
-_Note: [Prerequisites](../../README.md#Prerequisites) are also required._
+This example will create resources that will incur a cost. Run `terraform destroy` when you don't need these resources.
+
+Usage of Spirent TestCenter Virtual instances follows a Bring-Your-Own-License (BYOL) approach and is available for customers with current licenses purchased via [Spirent support](https://support.spirent.com/SpirentCSC).
+
+_Note: [Prerequisites](../../README.md#Prerequisites) are also required._ 
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
@@ -40,6 +44,7 @@ _Note: [Prerequisites](../../README.md#Prerequisites) are also required._
 | [vsphere_compute_cluster](https://registry.terraform.io/providers/hashicorp/vsphere/1.24.3/docs/data-sources/compute_cluster) |
 | [vsphere_datacenter](https://registry.terraform.io/providers/hashicorp/vsphere/1.24.3/docs/data-sources/datacenter) |
 | [vsphere_network](https://registry.terraform.io/providers/hashicorp/vsphere/1.24.3/docs/data-sources/network) |
+| [vsphere_datastore](https://registry.terraform.io/providers/hashicorp/vsphere/1.24.3/docs/data-sources/datastore) |
 
 ## Inputs
 

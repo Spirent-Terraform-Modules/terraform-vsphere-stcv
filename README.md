@@ -14,7 +14,7 @@ Prior to running Terraform the following must be completed:
 ### Install govc
 [govc](https://github.com/vmware/govmomi/tree/master/govc) is a vSphere command line interface (CLI). Follow installation instructions [here](https://github.com/vmware/govmomi/tree/master/govc#Installation).
 
-Set govc environmental variables specific to your vSphere: GOVC_URL, GOVC_INSECURE, GOVC_USERNAME, GOVC_PASSWORD
+Set govc environmental variables specific to your vSphere: `GOVC_URL`, `GOVC_INSECURE`, `GOVC_USERNAME`, `GOVC_PASSWORD`
 
 Verify vSphere list inventory works:
 ```
@@ -40,7 +40,17 @@ Create vSphere STCv template using the following commands:
 
 | Name | Version |
 |------|---------|
+| template | n/a |
 | vsphere | 1.24.3 |
+
+## Resources
+
+| Name |
+|------|
+| [vsphere_datacenter](https://registry.terraform.io/providers/hashicorp/vsphere/1.24.3/docs/data-sources/datacenter) |
+| [vsphere_datastore](https://registry.terraform.io/providers/hashicorp/vsphere/1.24.3/docs/data-sources/datastore) |
+| [vsphere_virtual_machine](https://registry.terraform.io/providers/hashicorp/vsphere/1.24.3/docs/data-sources/virtual_machine) |
+| [vsphere_virtual_machine](https://registry.terraform.io/providers/hashicorp/vsphere/1.24.3/docs/resources/virtual_machine) |
 
 ## Inputs
 
@@ -88,10 +98,10 @@ spirent:
 | ntp | NTP server | IP address | x.x.x.x (cloud provider recommended)
 | ipv4mode | IPv4 address mode | none, static, dhcp | dhcp
 | ipaddress | IPv4 address (static mode) | IPv4 address | -
-| netmask | IPv4 netmask (static mode) | IPv4 netmaks | -
+| netmask | IPv4 netmask (static mode) | IPv4 netmask | -
 | gwaddress | IPv4 gateway address (static mode) | IPv4 gateway address | -
 | ipv6mode | IPv6 address mode | none, static, dhcp | none
-| ipv6address | IPv4 address (static mode) | IPv4 address | -
-| ipv6prefixlen | IPv6 prefix length (static mode) | IPv4 netmaks | -
-| ipv6gwaddress | IPv4 gateway address (static mode) | IPv6 gateway address | -
+| ipv6address | IPv6 address (static mode) | IPv6 address | -
+| ipv6prefixlen | IPv6 prefix length (static mode) | IPv6 prefix length | -
+| ipv6gwaddress | IPv6 gateway address (static mode) | IPv6 gateway address | -
 | gvtap | Turn Gigamon gvtap agent on or off| off, on | off

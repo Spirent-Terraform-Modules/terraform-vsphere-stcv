@@ -9,31 +9,26 @@ provider "vsphere" {
 }
 
 data "vsphere_datacenter" "stcv" {
-  name          = var.vsphere_datacenter
+  name          = var.datacenter
 }
 
 data "vsphere_datastore" "stcv" {
-  name          = var.vsphere_datastore
+  name          = var.datastore
   datacenter_id = data.vsphere_datacenter.stcv.id
 }
 
 data "vsphere_compute_cluster" "stcv" {
-  name          = var.vsphere_compute_cluster
-  datacenter_id = data.vsphere_datacenter.stcv.id
-}
-
-data "vsphere_host" "stcv" {
-  name          = var.vsphere_host
+  name          = var.compute_cluster
   datacenter_id = data.vsphere_datacenter.stcv.id
 }
 
 data "vsphere_network" "mgmt_plane" {
-  name          = "Host Network - A1"
+  name          = var.mgmt_plane_network
   datacenter_id = data.vsphere_datacenter.stcv.id
 }
 
 data "vsphere_network" "data_plane" {
-  name          = "OSE_Testing"
+  name          = var.data_plane_network
   datacenter_id = data.vsphere_datacenter.stcv.id
 }
 
@@ -42,7 +37,8 @@ module "stcv" {
   instance_count          = var.instance_count
   num_cpus                = var.num_cpus
   memory                  = var.memory
-  datacenter_id           = data.vsphere_datacenter.stcv.id
+  datacenter              = var.datacenter
+  datastore               = var.datastore
   resource_pool_id        = data.vsphere_compute_cluster.stcv.resource_pool_id
   mgmt_plane_network_id   = data.vsphere_network.mgmt_plane.id
   data_plane_network_id   = data.vsphere_network.data_plane.id

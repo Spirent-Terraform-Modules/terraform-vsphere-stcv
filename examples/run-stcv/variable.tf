@@ -1,36 +1,31 @@
 variable "vsphere_server" {
   description = "The vSphere server."
-  default     = "example-vc.testlab.org.com"
+  default     = "example.calenglab.org.com"
 }
 
 variable "vsphere_user" {
-  description = "The user to access vSphere."
-  default     = "example@vsphere.local"
+  description = "vSphere user name."
+  default     = "administrator@vsphere.local"
 }
 
 variable "vsphere_password" {
-  description = "The password for the current vSphere user."
-  default     = "example"
+  description = "vSphere user password."
+  default     = "VspherePassword"
 }
 
-variable "vsphere_datacenter" {
-  description = "The name of the vSphere Datacenter into which resources will be created."
-  default     = "example-dc"
+variable "datacenter" {
+  description = "vSphere datacenter name."
+  default     = "dc"
 }
 
-variable "vsphere_datastore" {
-  description = "The name of the vSphere Datastore into which resources will be created."
-  default     = "example-01.local"
+variable "datastore" {
+  description = "vSphere datastore name."
+  default     = "ds"
 }
 
-variable "vsphere_compute_cluster" {
-  description = "The vSphere Cluster into which resources will be created."
-  default     = "example-cluster"
-}
-
-variable "vsphere_host" {
-  description = "Host name on the vSphere server."
-  default     = "example-01.testlab.org.com"
+variable "compute_cluster" {
+  description = "vSphere Cluster name into which resources will be created."
+  default     = "cluster1"
 }
 
 variable "instance_count" {
@@ -40,7 +35,7 @@ variable "instance_count" {
 }
 
 variable "num_cpus" {
-  description = "The total number of virtual processor cores to assign to STCv virtual machine"
+  description = "The total number of virtual processor cores to assign to STCv virtual machine."
   default     = "2"
 }
 
@@ -50,16 +45,16 @@ variable "memory" {
 }
 
 variable "template_name" {
-  description = "Name of the template created from the OVF or OVA"
+  description = "Name of the template created from the OVA."
   default     = "template_from_ovf"
 }
 
-variable "mgmt_plane_subnet_id" {
-  description = "Management network ID."
-  default     = ""
+variable "mgmt_plane_network" {
+  description = "Management network name."
+  default     = "Host Network"
 }
 
-variable "test_plane_subnet_id" {
-  description = "Test or data plane network ID."
-  default     = ""
+variable "data_plane_network" {
+  description = "Data network name."
+  default     = "Test Network"
 }

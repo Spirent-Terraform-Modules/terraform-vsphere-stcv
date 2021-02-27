@@ -25,37 +25,31 @@ variable "memory" {
 variable "template_name" {
   description = "Name of the template created from the OVA"
   type        = string
-  default     = ""
 }
 
-variable "datacenter_id" {
-  description = "vSphere datacenter ID."
+variable "datacenter" {
+  description = "vSphere datacenter name"
   type        = string
-  default     = ""
 }
 
-variable "datastore_id" {
-  description = "vSphere datastore ID."
+variable "datastore" {
+  description = "vSphere datastore name"
   type        = string
-  default     = ""
 }
 
 variable "resource_pool_id" {
-  description = "vSphere resource pool ID."
+  description = "vSphere resource pool ID"
   type        = string
-  default     = ""
 }
 
 variable "mgmt_plane_network_id" {
-  description = "Management network ID."
+  description = "Management network ID"
   type        = string
-  default     = ""
 }
 
 variable "data_plane_network_id" {
   description = "Test or data plane network ID."
   type        = string
-  default     = ""
 }
 
 variable "user_data_file" {
